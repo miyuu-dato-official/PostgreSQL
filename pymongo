@@ -1,0 +1,9 @@
+from pymongo import MongoClient
+
+client = MongoClient(
+    "mongodb://mongoadmin:Secret_123@localhost:10260/"
+    "?tls=true&tlsAllowInvalidCertificates=true&authMechanism=SCRAM-SHA-256"
+)
+db = client["shop"]
+db.products.insert_one({"name": "Sprocket", "price": 4.5})
+print(db.products.find_one({"name": "Sprocket"}))
