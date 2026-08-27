@@ -1,0 +1,2 @@
+ERROR:  password type is not a plain text
+CONTEXT:  ... CREATE ROLE mongoadmin WITH LOGIN PASSWORD 'SCRAM-SHA-256$...'
