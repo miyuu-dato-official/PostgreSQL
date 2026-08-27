@@ -1,0 +1,6 @@
+docker run --rm --network host mongodb/mongodb-community-server:latest mongosh --quiet \
+  "mongodb://mongoadmin:Secret_123@localhost:10260/?tls=true&tlsAllowInvalidCertificates=true&authMechanism=SCRAM-SHA-256" \
+  --eval 'const db = db.getSiblingDB("shop");
+          db.products.insertMany([{name:"Widget",price:9.99},{name:"Gadget",price:19.5}]);
+          printjson(db.products.find({price:{$gte:10}}).toArray());
+          printjson(db.products.aggregate([{$group:{_id:null,avg:{$avg:"$price"}}}]).toArray());'
