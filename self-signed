@@ -1,0 +1,1 @@
+mongodb://mongoadmin:Secret_123@localhost:10260/?tls=true&tlsAllowInvalidCertificates=true&authMechanism=SCRAM-SHA-256
